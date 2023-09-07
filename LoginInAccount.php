@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        header('Location: dashboard.php'); 
+        header('Location: dashboard.php');
         exit();
     } else {
         echo "Login failed. Please check your username/email and password.";
@@ -44,20 +44,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
 
-<body>
-    <h2>Login to your account</h2>
-    <form method="POST" action="login.php">
-        <label for="username">Username or Email:</label>
-        <input type="text" name="username" required><br><br>
+<body class="bg-blue-600">
+    <div class="border w-[25rem] h-[30rem] p-[5rem] pt-[2.4rem] flex flex-col justify-center items-center absolute top-[6rem] left-[26rem] shadow-2xl bg-white">
+        <h2 class="text-[1.9rem] text-center text-blue-500 mb-10 mt-3 w-full font-bold">Login to Your Account</h2>
+        <form method="POST" action="loginInAccount.php">
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br><br>
+            <input class="inputF" type="text" name="username" placeholder="👤 Username" required><br><br>
 
-        <input type="submit" value="Login">
-    </form>
+
+            <input class="inputF" type="password" name="password" placeholder="🔒 Password"><br><br>
+
+            <input type="submit" class="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 hover:from-blue-400 hover:via-blue-500 hover:to-blue-400 focus:outline-none border-none text-white font-bold py-2.5 px-4 rounded-full transform transition-transform hover:scale-95 cursor-pointer"  value="Login">
+
+
+        </form>
+        <p class="mt-3">No Account ? <a class="text-blue-500" href="CreateAccount.php">Create Account</a></p>
+    </div>
+
 </body>
 
 </html>

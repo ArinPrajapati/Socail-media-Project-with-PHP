@@ -1,0 +1,23 @@
+.inputF {
+  padding: 10px;
+  width: 15rem;
+  background: rgba(231, 231, 231, 0.76);
+  
+}
+
+.custom-button {
+    background: linear-gradient(to right, #0074e4, #00c6ff); /* Adjust the colors as needed */
+    border: none;
+    outline: none;
+    width: 7rem;
+    height: 2.3rem;
+    color: white; /* Text color */
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s; /* Add a scaling effect on click */
+}
+
+/* Add the scaling effect on button click */
+.custom-button:active {
+    transform: scale(0.75);
+}
