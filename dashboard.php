@@ -1,18 +1,17 @@
 <?php
-ini_set('memory_limit', '256M'); // Set memory limit to 256MB (adjust as needed)
-ini_set('max_execution_time', 300); // Set execution time limit to 300 seconds (adjust as needed)
+ini_set('memory_limit', '256M'); 
+ini_set('max_execution_time', 300); 
 
 // Start the session
 session_start();
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to the login page or display an error message if not logged in
+   
     header('Location: login_form.php');
     exit();
 }
 
-// Database connection settings (same as in your other PHP files)
 $host = 'localhost';
 $dbname = 'socailmedia';
 $username = 'root';
@@ -25,7 +24,6 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Retrieve your posts with images
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT post_id, content, image_base64, created_at FROM posts WHERE user_id = :user_id";
 $stmt = $db->prepare($sql);
@@ -41,7 +39,6 @@ $userPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
     <title>User Dashboard</title>
-    <!-- Add Tailwind CSS link here -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 

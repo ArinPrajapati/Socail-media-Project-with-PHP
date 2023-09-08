@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post_content = $_POST['post_content'];
     $privacy = $_POST['privacy'];
 
-    // File upload handling (if an image is uploaded)
     $image_base64 = '';
     if (!empty($_FILES['post_image']['name'])) {
         $image_path = $_FILES['post_image']['tmp_name'];
@@ -37,19 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $compressed_image_data = base64_encode(gzcompress($image_data, 9)); // 9 is the compression level
             } else {
                 echo "Failed to read the uploaded image.";
-                // Handle the error as needed.
             }
         } else {
             echo "Failed to process the uploaded image.";
-            // You can handle the error as needed.
         }
     }
 
-    // Insert post data into the database
     $sql = "INSERT INTO posts (user_id, content, image_base64, privacy) VALUES (:user_id, :content, :image_base64, :privacy)";
     $stmt = $db->prepare($sql);
 
-    // Replace :user_id with the actual user ID of the logged-in user (you'll need to implement user authentication)
     $user_id = $_SESSION['user_id'];
 
     $stmt->bindParam(':user_id', $user_id);
@@ -71,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
     <title>Create Post</title>
-    <!-- Add Tailwind CSS link here -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
