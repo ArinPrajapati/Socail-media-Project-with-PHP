@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div>
                 <input type="submit" value="Create Post" class="bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600">
-                <a href="dashboard.php" class="bg-orange-500 text-white px-4 py-3 rounded hover:bg-orange-600">Dashboard</a>
+                <a href="homepage.php" class="bg-orange-500 text-white px-4 py-3 rounded hover:bg-orange-600">Home page</a>
             </div>
         </form>
     </div>

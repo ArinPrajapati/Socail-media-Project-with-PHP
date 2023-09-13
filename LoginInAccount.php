@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        header('Location: dashboard.php');
+        header('Location: homepage.php');
         exit();
     } else {
         echo "Login failed. Please check your username/email and password.";
